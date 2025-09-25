@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)file:///Users/ALEXLIU/Downloads/project/mold/mold_frontend/config/index.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>“中病毒”模拟小程序</title>
+  <style>
+    body {
+      background: #000;
+      color: #0f0;
+      font-family: "Consolas", "Courier New", monospace;
+      margin: 0;
+      overflow: hidden;
+    }
+    .virus-msg {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.95);
+      color: #0f0;
+      border: 2px solid #0f0;
+      border-radius: 12px;
+      padding: 32px 24px;
+      font-size: 22px;
+      text-align: center;
+      z-index: 9999;
+      box-shadow: 0 0 24px #0f0;
+      animation: shake 0.5s infinite alternate;
+    }
+    @keyframes shake {
+      0% { transform: translate(-50%, -50%) rotate(-2deg);}
+      100% { transform: translate(-50%, -50%) rotate(2deg);}
+    }
+    .virus-bg {
+      position: fixed;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .virus-bg span {
+      position: absolute;
+      color: #0f0;
+      font-size: 18px;
+      opacity: 0.2;
+      user-select: none;
+      pointer-events: none;
+      animation: fall 4s linear infinite;
+    }
+    @keyframes fall {
+      0% { top: -30px; }
+      100% { top: 110vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="virus-bg" id="virusBg"><span style="left: 31.3492vw; top: -30px; font-size: 24.316px; opacity: 0.37463;">VIRUS</span><span style="left: 53.4814vw; top: -30px; font-size: 27.9951px; opacity: 0.216991;">DATA LOST</span><span style="left: 37.2223vw; top: -30px; font-size: 18.8095px; opacity: 0.191221;">DATA LOST</span><span style="left: 49.9201vw; top: -30px; font-size: 21.8273px; opacity: 0.317743;">####</span><span style="left: 81.131vw; top: -30px; font-size: 19.883px; opacity: 0.234044;">VIRUS</span><span style="left: 72.2315vw; top: -30px; font-size: 19.9558px; opacity: 0.315676;">!!!</span><span style="left: 25.6493vw; top: -30px; font-size: 24.1965px; opacity: 0.350895;">!!!</span><span style="left: 13.5879vw; top: -30px; font-size: 16.3151px; opacity: 0.342741;">VIRUS</span><span style="left: 51.1707vw; top: -30px; font-size: 23.6161px; opacity: 0.411304;">ERROR!</span><span style="left: 87.0596vw; top: -30px; font-size: 16.4176px; opacity: 0.229133;">!!!</span><span style="left: 26.3072vw; top: -30px; font-size: 29.1977px; opacity: 0.342532;">ENCRYPT</span><span style="left: 86.2316vw; top: -30px; font-size: 23.5995px; opacity: 0.245487;">VIRUS</span><span style="left: 56.5493vw; top: -30px; font-size: 24.8984px; opacity: 0.175055;">警告</span><span style="left: 70.3297vw; top: -30px; font-size: 20.5655px; opacity: 0.164753;">!!!</span><span style="left: 31.024vw; top: -30px; font-size: 17.1009px; opacity: 0.438513;">VIRUS</span><span style="left: 3.76433vw; top: -30px; font-size: 29.6688px; opacity: 0.376897;">感染</span><span style="left: 5.81335vw; top: -30px; font-size: 24.8035px; opacity: 0.449097;">!!!</span><span style="left: 17.2907vw; top: -30px; font-size: 21.9379px; opacity: 0.365991;">010101</span><span style="left: 92.6844vw; top: -30px; font-size: 20.7943px; opacity: 0.184868;">010101</span><span style="left: 42.5651vw; top: -30px; font-size: 29.1004px; opacity: 0.184625;">010101</span><span style="left: 27.8883vw; top: -30px; font-size: 31.4877px; opacity: 0.184678;">VIRUS</span><span style="left: 37.3526vw; top: -30px; font-size: 20.9396px; opacity: 0.265757;">!!!</span><span style="left: 16.7268vw; top: -30px; font-size: 22.1188px; opacity: 0.402358;">ENCRYPT</span><span style="left: 45.9201vw; top: -30px; font-size: 21.2597px; opacity: 0.277948;">####</span><span style="left: 79.0233vw; top: -30px; font-size: 30.148px; opacity: 0.294486;">!!!</span><span style="left: 49.2421vw; top: -30px; font-size: 27.088px; opacity: 0.151406;">DATA LOST</span><span style="left: 53.8335vw; top: -30px; font-size: 25.3496px; opacity: 0.24255;">!!!</span><span style="left: 35.0641vw; top: -30px; font-size: 16.2628px; opacity: 0.318739;">警告</span><span style="left: 92.5011vw; top: -30px; font-size: 27.0583px; opacity: 0.238238;">ERROR!</span><span style="left: 30.886vw; top: -30px; font-size: 17.9436px; opacity: 0.416249;">DATA LOST</span><span style="left: 91.7095vw; top: -30px; font-size: 28.8747px; opacity: 0.259086;">ENCRYPT</span><span style="left: 79.7379vw; top: -30px; font-size: 24.4919px; opacity: 0.370993;">ERROR!</span><span style="left: 54.6625vw; top: -30px; font-size: 23.8476px; opacity: 0.299084;">警告</span></div>
+  <div class="virus-msg" id="virusMsg">系统已崩溃，请自求多福！</div>
+  <audio id="virusAudio" src="https://cdn.pixabay.com/audio/2022/10/16/audio_12b6b8e6c7.mp3" loop=""></audio>
+  <script>
+    // 播放恐慌音效
+    setTimeout(() => {
+      document.getElementById('virusAudio').play();
+    }, 800);
+
+    // 屏幕上不断掉落“病毒代码”
+    const virusBg = document.getElementById('virusBg');
+    const virusCodes = [
+      '010101', 'ERROR!', '!!!', '警告', 'VIRUS', 'ENCRYPT', '####', '感染', 'DATA LOST', 'X_X', '!!!'
+    ];
+    function createVirusCode() {
+      const span = document.createElement('span');
+      span.textContent = virusCodes[Math.floor(Math.random() * virusCodes.length)];
+      span.style.left = Math.random() * 98 + 'vw';
+      span.style.top = '-30px';
+      span.style.fontSize = (16 + Math.random() * 16) + 'px';
+      span.style.opacity = 0.15 + Math.random() * 0.3;
+      virusBg.appendChild(span);
+      setTimeout(() => { span.remove(); }, 4000);
+    }
+    setInterval(createVirusCode, 120);
+
+    // 弹窗每隔一段时间变内容
+    const virusMsg = document.getElementById('virusMsg');
+    const msgList = [
+      '⚠️ 系统警告 ⚠️<br>您的电脑已感染神秘病毒！<br>文件正在被加密...<br><span style="font-size:16px;">请勿关闭页面！</span>',
+      '正在窃取您的账号密码...',
+      '正在格式化硬盘...',
+      '正在上传隐私照片...',
+      '正在锁定系统...',
+      '请联系管理员解锁！',
+      '病毒已升级，无法清除！',
+      '系统已崩溃，请自求多福！'
+    ];
+    let idx = 0;
+    setInterval(() => {
+      idx = (idx + 1) % msgList.length;
+      virusMsg.innerHTML = msgList[idx];
+    }, 2500);
+
+    // 禁用右键和F12
+    // window.oncontextmenu = function() { return false; };
+    // window.onkeydown = function(e) {
+    //   if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+    //     e.preventDefault();
+    //     return false;
+    //   }
+    // };
+  </script>
+
+</body></html>
